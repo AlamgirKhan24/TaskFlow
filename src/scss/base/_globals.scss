@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as *;
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: clamp(56px, 8vw, 120px);
+}
+
+.section {
+  padding-block: 9vh;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-8;
+}
+
+@media (max-width: $bp-tablet) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+::selection {
+  background: var(--amber);
+  color: #14100A;
+}

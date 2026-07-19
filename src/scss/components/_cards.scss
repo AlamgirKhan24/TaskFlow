@@ -1,0 +1,47 @@
+@use '../abstracts/variables' as *;
+
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: $radius-sm;
+  padding: $space-3 $space-4;
+}
+
+.card-done {
+  background: rgba(127, 231, 196, 0.08);
+  border-color: rgba(127, 231, 196, 0.5);
+}
+
+.card-line {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text-dim);
+  opacity: 0.55;
+  margin-top: $space-2;
+}
+
+.card-line--short {
+  width: 60%;
+}
+
+.card-traveler {
+  background: var(--bg-raised);
+  border: 1.4px solid var(--amber);
+  filter: drop-shadow(0 0 8px rgba(255, 180, 84, 0.45));
+}
+
+.col-plate {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: $radius-lg;
+  padding: $space-4;
+}
+
+.col-label {
+  font-family: $font-mono;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: $space-4;
+}

@@ -1,0 +1,128 @@
+@use '../abstracts/variables' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(56px, 8vw, 120px);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom-color: var(--line);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-mono;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+
+  svg {
+    display: block;
+  }
+}
+
+.navbar-links {
+  display: flex;
+  gap: $space-8;
+  font-size: 14px;
+}
+
+.navbar-links a {
+  position: relative;
+  color: var(--text-dim);
+  padding: 4px 0;
+  transition: color 0.2s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1.5px;
+    background: var(--amber);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    color: var(--text);
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+
+.navbar-links a.active {
+  color: var(--text);
+
+  &::after {
+    transform: scaleX(1);
+    background: var(--mint);
+  }
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: $radius-md;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    color: var(--text);
+    border-color: var(--amber);
+    background: rgba(255, 180, 84, 0.06);
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme='light'] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme='light'] .theme-toggle .icon-moon {
+  display: block;
+}
+
+@media (max-width: $bp-mobile) {
+  .navbar-links {
+    display: none;
+  }
+}

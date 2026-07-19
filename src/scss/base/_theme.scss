@@ -1,0 +1,33 @@
+@use '../abstracts/variables' as *;
+
+:root {
+  --bg: #{$color-bg};
+  --bg-raised: #{$color-bg-raised};
+  --bg-panel: #{$color-bg-panel};
+  --field: #{$color-field};
+  --card: #1D2438;
+
+  --text: #{$color-text};
+  --text-dim: #{$color-text-dim};
+
+  --amber: #{$color-amber};
+  --mint: #{$color-mint};
+  --error: #{$color-error};
+
+  --line: #{$line};
+  --line-strong: #{$line-strong};
+}
+
+[data-theme='light'] {
+  --bg: #F7F5EF;
+  --bg-raised: #FFFFFF;
+  --bg-panel: #FFFFFF;
+  --field: #EFEBE1;
+  --card: #FFFFFF;
+
+  --text: #1A1D26;
+  --text-dim: #5A6172;
+
+  --line: rgba(26, 29, 38, 0.12);
+  --line-strong: rgba(26, 29, 38, 0.22);
+}
