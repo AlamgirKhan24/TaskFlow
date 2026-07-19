@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as *;
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-8;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  padding-top: $space-6;
+  border-top: 2px solid var(--line-strong);
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin: $space-4 0 $space-3;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+}
+
+.step-num {
+  font-family: $font-mono;
+  font-size: 13px;
+  color: var(--amber);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: $bp-tablet) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: $space-10;
+  }
+}
