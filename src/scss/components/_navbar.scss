@@ -121,8 +121,66 @@
   display: block;
 }
 
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 0 8px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: $radius-md;
+  cursor: pointer;
+
+  span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+}
+
 @media (max-width: $bp-mobile) {
-  .navbar-links {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar-actions .btn-outline {
     display: none;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: $space-4 clamp(56px, 8vw, 120px);
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+  }
+
+  .navbar-links.is-open {
+    max-height: 320px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar-links a {
+    padding: $space-4 0;
+    font-size: 16px;
   }
 }
