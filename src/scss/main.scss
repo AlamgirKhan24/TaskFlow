@@ -9,6 +9,7 @@
 @use 'components/navbar';
 @use 'components/cards';
 @use 'components/forms';
+@use 'components/sidebar';
 
 @use 'pages/landing';
 @use 'pages/features';
@@ -16,3 +17,4 @@
 @use 'pages/closing';
 @use 'pages/login';
 @use 'pages/register';
+@use 'pages/dashboard';
