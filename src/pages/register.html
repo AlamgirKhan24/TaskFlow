@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create account — TaskFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body>
+
+<main class="auth">
+
+  <!-- LEFT: checklist panel (laptop only) -->
+  <aside class="auth-visual">
+    <a href="index.html" class="navbar-brand">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M2 17 C 7 17, 7 5, 12 5 C 17 5, 17 17, 20 17" stroke="#FFB454" stroke-width="1.6" fill="none"/>
+        <circle cx="2" cy="17" r="1.8" fill="#7FE7C4"/>
+        <circle cx="12" cy="5" r="1.8" fill="#F5F3EA"/>
+        <circle cx="20" cy="17" r="1.8" fill="#FFB454"/>
+      </svg>
+      TaskFlow
+    </a>
+
+    <div class="auth-visual-copy">
+      <h2 class="auth-quote">Start your <em>first flow.</em></h2>
+      <p class="auth-visual-sub">Create an account and turn your backlog into a board that moves itself.</p>
+    </div>
+
+    <div class="flow-stage">
+      <svg viewBox="0 0 380 340">
+        <!-- card 1 -->
+        <g class="task-item" style="--d:0s">
+          <rect x="24" y="28" width="332" height="60" rx="12" fill="var(--card)" stroke="var(--line)"/>
+          <circle class="tick-bg" cx="58" cy="58" r="14"/>
+          <path class="tick" d="M51 58l5 5 9-10"/>
+          <rect x="86" y="48" width="150" height="7" rx="3.5" fill="var(--text-dim)" opacity="0.5"/>
+          <rect x="86" y="63" width="90" height="6" rx="3" fill="var(--text-dim)" opacity="0.3"/>
+        </g>
+
+        <!-- card 2 -->
+        <g class="task-item" style="--d:0.6s">
+          <rect x="24" y="100" width="332" height="60" rx="12" fill="var(--card)" stroke="var(--line)"/>
+          <circle class="tick-bg" cx="58" cy="130" r="14"/>
+          <path class="tick" d="M51 130l5 5 9-10"/>
+          <rect x="86" y="120" width="180" height="7" rx="3.5" fill="var(--text-dim)" opacity="0.5"/>
+          <rect x="86" y="135" width="110" height="6" rx="3" fill="var(--text-dim)" opacity="0.3"/>
+        </g>
+
+        <!-- card 3 -->
+        <g class="task-item" style="--d:1.2s">
+          <rect x="24" y="172" width="332" height="60" rx="12" fill="var(--card)" stroke="var(--line)"/>
+          <circle class="tick-bg" cx="58" cy="202" r="14"/>
+          <path class="tick" d="M51 202l5 5 9-10"/>
+          <rect x="86" y="192" width="160" height="7" rx="3.5" fill="var(--text-dim)" opacity="0.5"/>
+          <rect x="86" y="207" width="80" height="6" rx="3" fill="var(--text-dim)" opacity="0.3"/>
+        </g>
+
+        <!-- progress -->
+        <text class="svg-col-label" x="24" y="272">SETTING UP YOUR WORKSPACE</text>
+        <rect x="24" y="286" width="332" height="10" rx="5" fill="var(--field)"/>
+        <rect class="progress-fill" x="24" y="286" width="332" height="10" rx="5" fill="var(--amber)"/>
+      </svg>
+    </div>
+  </aside>
+
+  <!-- RIGHT: register card -->
+  <div class="auth-card">
+    <a href="index.html" class="auth-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to home
+    </a>
+
+    <a href="index.html" class="navbar-brand auth-brand">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M2 17 C 7 17, 7 5, 12 5 C 17 5, 17 17, 20 17" stroke="#FFB454" stroke-width="1.6" fill="none"/>
+        <circle cx="2" cy="17" r="1.8" fill="#7FE7C4"/>
+        <circle cx="12" cy="5" r="1.8" fill="#F5F3EA"/>
+        <circle cx="20" cy="17" r="1.8" fill="#FFB454"/>
+      </svg>
+      TaskFlow
+    </a>
+
+    <h1 class="auth-title">Create your account</h1>
+    <p class="auth-sub">Free to start. Your first board takes minutes.</p>
+
+    <form class="auth-form">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" placeholder="Alamgir Khan" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@company.com" required>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="field-password">
+          <input type="password" id="password" placeholder="••••••••" required>
+          <button type="button" class="password-toggle" data-password-toggle aria-label="Show password">
+            <svg class="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg class="icon-eye-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.9 17.9A10.6 10.6 0 0 1 12 19c-6.5 0-10-7-10-7a18.3 18.3 0 0 1 5.1-5.9m3.2-1.5A10.6 10.6 0 0 1 12 5c6.5 0 10 7 10 7a18.3 18.3 0 0 1-2.2 3.2M1 1l22 22"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <div class="field-password">
+          <input type="password" id="confirm" placeholder="••••••••" required>
+          <button type="button" class="password-toggle" data-password-toggle aria-label="Show password">
+            <svg class="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg class="icon-eye-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.9 17.9A10.6 10.6 0 0 1 12 19c-6.5 0-10-7-10-7a18.3 18.3 0 0 1 5.1-5.9m3.2-1.5A10.6 10.6 0 0 1 12 5c6.5 0 10 7 10 7a18.3 18.3 0 0 1-2.2 3.2M1 1l22 22"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary auth-submit">Create account</button>
+    </form>
+
+    <p class="auth-alt">
+      Already have an account? <a href="login.html">Sign in</a>
+    </p>
+  </div>
+
+</main>
+
+<script type="module" src="../js/pages/auth.js"></script>
+</body>
+</html>

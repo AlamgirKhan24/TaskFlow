@@ -1,0 +1,112 @@
+@use '../abstracts/variables' as *;
+
+.task-item {
+  animation: task-rise 5.4s ease-in-out infinite;
+  animation-delay: var(--d);
+}
+
+.tick-bg {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 2.5;
+  animation: tick-ring 5.4s ease-in-out infinite;
+  animation-delay: var(--d);
+}
+
+.tick {
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 22;
+  stroke-dashoffset: 22;
+  animation: tick-draw 5.4s ease-in-out infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes task-rise {
+  0% {
+    opacity: 0.5;
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes tick-ring {
+  0%,
+  6% {
+    stroke: var(--line-strong);
+  }
+
+  16%,
+  82% {
+    stroke: var(--mint);
+  }
+
+  92%,
+  100% {
+    stroke: var(--line-strong);
+  }
+}
+
+@keyframes tick-draw {
+  0%,
+  6% {
+    stroke-dashoffset: 22;
+  }
+
+  16%,
+  82% {
+    stroke-dashoffset: 0;
+  }
+
+  92%,
+  100% {
+    stroke-dashoffset: 22;
+  }
+}
+
+.progress-fill {
+  transform-origin: left center;
+  animation: fill-up 5.4s ease-in-out infinite;
+}
+
+@keyframes fill-up {
+  0% {
+    transform: scaleX(0);
+  }
+
+  75% {
+    transform: scaleX(1);
+  }
+
+  92%,
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .task-item {
+    opacity: 1;
+  }
+
+  .tick {
+    stroke-dashoffset: 0;
+  }
+
+  .progress-fill {
+    transform: scaleX(1);
+  }
+}
