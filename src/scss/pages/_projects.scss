@@ -1,0 +1,263 @@
+@use '../abstracts/variables' as *;
+
+/* ===== header ===== */
+.proj-head {
+  margin-bottom: $space-5;
+}
+.proj-title {
+  font-family: $font-display;
+  font-weight: 500;
+  font-size: 26px;
+  background: linear-gradient(90deg, var(--text), var(--text-dim));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 6px 0 0;
+  letter-spacing: -0.01em;
+}
+
+/* ===== stats row ===== */
+.proj-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+  margin-bottom: $space-6;
+}
+@media (min-width: $bp-mobile) {
+  .proj-stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+.proj-stat {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: $space-4;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+    border-color: var(--line-strong);
+  }
+}
+
+.proj-stat-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-content: center;
+}
+.proj-stat-icon.total   { background: rgba(255,180,84,0.14);  color: var(--amber); }
+.proj-stat-icon.active  { background: rgba(130,170,255,0.14); color: #82AAFF; }
+.proj-stat-icon.done    { background: rgba(127,231,196,0.16); color: var(--mint); }
+.proj-stat-icon.hold    { background: rgba(255,138,128,0.14); color: #FF8A80; }
+
+.proj-stat-num {
+  font-family: $font-display;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.1;
+}
+.proj-stat-label {
+  font-family: $font-mono;
+  font-size: 10.5px;
+  color: var(--text-dim);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* ===== toolbar ===== */
+.proj-toolbar {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-6;
+  flex-wrap: wrap;
+}
+
+.proj-search {
+  flex: 1;
+  min-width: 200px;
+}
+
+.proj-new-btn {
+  font-size: 13.5px;
+  padding: 10px 18px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 6px 18px rgba(255, 180, 84, 0.28);
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 180, 84, 0.38);
+  }
+}
+
+/* ===== projects grid ===== */
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+}
+@media (min-width: $bp-mobile) {
+  .proj-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: $bp-tablet) {
+  .proj-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.proj-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  animation: cardFadeIn 0.25s ease both;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  border-top: 3px solid transparent;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+  }
+
+  &.status-active    { border-top-color: #82AAFF; }
+  &.status-completed { border-top-color: var(--mint); }
+  &.status-onhold     { border-top-color: #FF8A80; }
+}
+
+.proj-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-2;
+}
+
+.proj-card-name {
+  font-family: $font-display;
+  font-size: 16.5px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.proj-badge {
+  font-family: $font-mono;
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.proj-badge.status-active    { background: rgba(130,170,255,0.14); color: #82AAFF; }
+.proj-badge.status-completed { background: rgba(127,231,196,0.16); color: var(--mint); }
+.proj-badge.status-onhold     { background: rgba(255,138,128,0.14); color: #FF8A80; }
+
+.proj-card-desc {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  min-height: 32px;
+}
+
+/* progress bar */
+.proj-progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 10.5px;
+  color: var(--text-dim);
+}
+
+.proj-progress-track {
+  height: 6px;
+  border-radius: 4px;
+  background: var(--field);
+  overflow: hidden;
+}
+.proj-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--amber), #ffcf8a);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.proj-card.status-completed .proj-progress-fill { background: linear-gradient(90deg, var(--mint), #a6f2d9); }
+.proj-card.status-onhold .proj-progress-fill     { background: linear-gradient(90deg, #FF8A80, #ffb3ac); }
+
+/* footer: avatars + due date */
+.proj-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.avatar-stack {
+  display: flex;
+}
+.avatar-stack .mini-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  font-family: $font-mono;
+  font-size: 10px;
+  font-weight: 500;
+  color: #14100A;
+  border: 2px solid var(--bg-raised);
+  margin-left: -8px;
+
+  &:first-child { margin-left: 0; }
+}
+
+.proj-due {
+  font-family: $font-mono;
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.proj-tasks-count {
+  font-family: $font-mono;
+  font-size: 11px;
+  color: var(--text-dim);
+  background: var(--field);
+  padding: 3px 9px;
+  border-radius: 10px;
+}
+
+.proj-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--text-dim);
+  font-size: 13.5px;
+}
+
+/* ===== modal status picker reuses .category-picker / .cat-pill from _calendar.scss ===== */
+.cat-pill.status-active.active    { background: rgba(130,170,255,0.14); border-color: #82AAFF;      color: #82AAFF; }
+.cat-pill.status-completed.active { background: rgba(127,231,196,0.16); border-color: var(--mint);   color: var(--mint); }
+.cat-pill.status-onhold.active     { background: rgba(255,138,128,0.14); border-color: #FF8A80;      color: #FF8A80; }
+
+.proj-modal {
+  max-width: 420px;
+}
