@@ -52,6 +52,18 @@
   border-color: var(--mint);
   color: var(--mint);
 }
+.btn-danger {
+  background: rgba(255, 138, 128, 0.12);
+  color: #FF8A80;
+  border: 1px solid rgba(255, 138, 128, 0.4);
+}
+
+.btn-danger:hover {
+  background: #FF8A80;
+  color: #14100A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(255, 138, 128, 0.4);
+}
 
 .btn:focus-visible {
   outline: 2px solid var(--mint);

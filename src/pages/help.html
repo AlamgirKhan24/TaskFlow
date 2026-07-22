@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help — TaskFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body>
+
+<div class="app" data-sidebar-open="false">
+
+  <div class="app-overlay" data-sidebar-close></div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" class="navbar-brand sidebar-brand">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M2 17 C 7 17, 7 5, 12 5 C 17 5, 17 17, 20 17" stroke="#FFB454" stroke-width="1.6" fill="none"/>
+          <circle cx="2" cy="17" r="1.8" fill="#7FE7C4"/>
+          <circle cx="12" cy="5" r="1.8" fill="#F5F3EA"/>
+          <circle cx="20" cy="17" r="1.8" fill="#FFB454"/>
+        </svg>
+        <span class="sidebar-label">TaskFlow</span>
+      </a>
+      <button class="sidebar-collapse" data-sidebar-collapse aria-label="Collapse sidebar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link" data-tooltip="Dashboard">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/>
+          <rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>
+        </svg>
+        <span class="sidebar-label">Dashboard</span>
+      </a>
+
+      <a href="tasks.html" class="sidebar-link" data-tooltip="My Tasks">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>
+        </svg>
+        <span class="sidebar-label">My Tasks</span>
+      </a>
+
+      <a href="kanban.html" class="sidebar-link" data-tooltip="Kanban">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="10" rx="1"/><rect x="17" y="4" width="4" height="13" rx="1"/>
+        </svg>
+        <span class="sidebar-label">Kanban</span>
+      </a>
+
+      <a href="calendar.html" class="sidebar-link" data-tooltip="Calendar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/>
+        </svg>
+        <span class="sidebar-label">Calendar</span>
+      </a>
+
+      <a href="projects.html" class="sidebar-link" data-tooltip="Projects">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+        <span class="sidebar-label">Projects</span>
+      </a>
+
+      <a href="analytics.html" class="sidebar-link" data-tooltip="Analytics">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>
+        </svg>
+        <span class="sidebar-label">Analytics</span>
+      </a>
+
+      <div class="sidebar-divider"></div>
+
+      <a href="settings.html" class="sidebar-link" data-tooltip="Settings">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 6.6 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H2a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4 6.6l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V2a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H22a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/>
+        </svg>
+        <span class="sidebar-label">Settings</span>
+      </a>
+
+      <a href="help.html" class="sidebar-link active" data-tooltip="Help">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+        </svg>
+        <span class="sidebar-label">Help</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar">AK</div>
+      <div class="sidebar-label sidebar-user-info">
+        <span class="sidebar-user-name">Alamgir Khan</span>
+        <span class="sidebar-user-mail">you@company.com</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="app-main">
+    <header class="topbar">
+      <button class="topbar-menu" data-sidebar-open aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+      <h1 class="topbar-title">Help</h1>
+      <div class="topbar-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark / light mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-content">
+
+      <!-- ===== HERO ===== -->
+      <div class="help-hero">
+        <div class="dash-eyebrow">Support Center</div>
+        <h2 class="help-title">How can we help?</h2>
+        <p class="help-sub">Search our guides, FAQs, and tips below.</p>
+        <div class="help-search-wrap">
+          <svg class="help-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/>
+          </svg>
+          <input type="text" id="helpSearch" class="help-search" placeholder="Search for answers…" autocomplete="off">
+          <button class="help-search-clear" id="searchClear" aria-label="Clear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== QUICK TOPICS ===== -->
+      <div class="help-topics">
+
+        <div class="help-topic" data-topic="tasks">
+          <div class="help-topic-icon" style="background:rgba(255,180,84,0.1);color:var(--amber)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>
+            </svg>
+          </div>
+          <div class="help-topic-title">Tasks</div>
+          <div class="help-topic-desc">Create, edit, filter, and complete tasks</div>
+        </div>
+
+        <div class="help-topic" data-topic="kanban">
+          <div class="help-topic-icon" style="background:rgba(127,231,196,0.1);color:var(--mint)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="10" rx="1"/><rect x="17" y="4" width="4" height="13" rx="1"/>
+            </svg>
+          </div>
+          <div class="help-topic-title">Kanban Board</div>
+          <div class="help-topic-desc">Drag cards, manage columns, and track flow</div>
+        </div>
+
+        <div class="help-topic" data-topic="settings">
+          <div class="help-topic-icon" style="background:rgba(130,170,255,0.1);color:#82AAFF">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 6.6 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H2a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4 6.6l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V2a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H22a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/>
+            </svg>
+          </div>
+          <div class="help-topic-title">Settings</div>
+          <div class="help-topic-desc">Profile, appearance, and notifications</div>
+        </div>
+
+        <div class="help-topic" data-topic="data">
+          <div class="help-topic-icon" style="background:rgba(255,138,128,0.1);color:#FF8A80">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/>
+              <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>
+            </svg>
+          </div>
+          <div class="help-topic-title">Data & Privacy</div>
+          <div class="help-topic-desc">Where data is stored and how to reset it</div>
+        </div>
+
+      </div>
+
+      <!-- ===== FAQ ===== -->
+      <div class="help-faq-header">
+        <h3 class="help-faq-title">Frequently Asked Questions</h3>
+        <span class="help-faq-count" id="faqCount"></span>
+      </div>
+
+      <div class="help-no-results" id="helpNoResults">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-dim)">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.7" y2="16.7"/>
+        </svg>
+        <p>No results for <strong id="noResultsTerm"></strong></p>
+        <span>Try a different keyword</span>
+      </div>
+
+      <div class="help-faq" id="faqList">
+
+        <!-- Tasks -->
+        <div class="help-faq-group">
+          <div class="help-faq-group-label" data-category="tasks">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>
+            Tasks
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>How do I create a new task?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Click the <strong>New Task</strong> button in the toolbar on the Tasks page. Fill in the name, project, priority, and due date, then press <strong>Save</strong>. The task appears immediately in the To Do group.</p>
+            </div>
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>How do I mark a task as done?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Click the circle checkbox on the left side of any task row. It turns mint green and the task moves to the <em>Done</em> group. Click it again to restore the task to To Do.</p>
+            </div>
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>Can I rename a task inline?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Yes — click directly on the task name text to enter edit mode. Type your changes and then click anywhere else (blur) to save automatically.</p>
+            </div>
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>How do I filter tasks by priority or status?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Use the <strong>status tabs</strong> (All / To Do / In Progress / Done) and <strong>priority chips</strong> (High / Medium / Low) in the filter bar below the toolbar. You can combine them with the search box for precise results.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kanban -->
+        <div class="help-faq-group">
+          <div class="help-faq-group-label" data-category="kanban">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="10" rx="1"/><rect x="17" y="4" width="4" height="13" rx="1"/></svg>
+            Kanban Board
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>How does drag-and-drop work on the Kanban board?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Click and hold any card, then drag it to a different column. Release to drop. The card's status updates immediately and syncs to the Tasks page — they share the same data.</p>
+            </div>
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>What do the three columns represent?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p><strong>To Do</strong> — tasks not yet started. <strong>In Progress</strong> — tasks you are actively working on. <strong>Done</strong> — completed tasks. Moving a card between columns changes its status in both the Kanban and Tasks views.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="help-faq-group">
+          <div class="help-faq-group-label" data-category="settings">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 6.6 19l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H2a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4 6.6l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V2a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H22a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg>
+            Settings
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>How do I switch between dark and light mode?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Click the sun / moon icon in the top-right corner of any page, or go to <a href="settings.html">Settings → Appearance</a> and pick a theme there. Your choice is saved and remembered on your next visit.</p>
+            </div>
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>How do I update my profile name and email?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Go to <a href="settings.html">Settings → Profile</a>. Edit your full name and email, then click <strong>Save changes</strong>. The sidebar avatar and name update instantly.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data -->
+        <div class="help-faq-group">
+          <div class="help-faq-group-label" data-category="data">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+            Data & Privacy
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>Where is my data stored?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>All TaskFlow data is stored in your browser's <strong>localStorage</strong> under the <code>flowline:</code> prefix. Nothing is sent to any server — it is entirely local to your device and browser.</p>
+            </div>
+          </div>
+
+          <div class="help-faq-item">
+            <button class="help-faq-q" aria-expanded="false">
+              <span>How do I reset or clear all my data?</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="help-faq-a">
+              <p>Go to <a href="settings.html">Settings → Danger Zone</a> and click <strong>Clear data</strong>. Confirm in the dialog. This permanently removes all tasks, preferences, and profile data from your browser. It cannot be undone.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== STILL STUCK ===== -->
+      <div class="help-still">
+        <div class="help-still-inner">
+          <div class="help-still-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="help-still-title">Still have a question?</div>
+            <p class="help-still-sub">Open a GitHub issue and the team will get back to you.</p>
+          </div>
+          <a href="https://github.com" class="btn btn-primary help-still-btn" target="_blank" rel="noopener">Open an issue</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</div>
+
+<script type="module" src="../js/pages/help.js"></script>
+</body>
+</html>
