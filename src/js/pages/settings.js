@@ -2,7 +2,6 @@ import { initTheme } from '../modules/theme.js';
 import { initSidebar } from '../modules/sidebar.js';
 import { save, load } from '../modules/storage.js';
 
-/* ---- profile ---- */
 const DEFAULT_PROFILE = { name: 'Alamgir Khan', email: 'you@company.com' };
 let profile = load('profile', DEFAULT_PROFILE);
 
@@ -16,7 +15,6 @@ function renderProfileForm() {
   document.getElementById('profileAvatarPreview').textContent = initialsFrom(profile.name);
 }
 
-/* live initials preview while typing */
 document.getElementById('profName').addEventListener('input', (e) => {
   const initials = initialsFrom(e.target.value) || initialsFrom(profile.name);
   document.getElementById('profileAvatarPreview').textContent = initials;

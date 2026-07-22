@@ -2,50 +2,47 @@ import { initTheme } from '../modules/theme.js';
 import { initSidebar } from '../modules/sidebar.js';
 import { save, load } from '../modules/storage.js';
 
-/* ---- default seed data (used only the first time, before anything is saved) ---- */
 const SEED = [
-  { id: 1, name: 'Learn HTML tags and structure', project: 'HTML', priority: 'high', due: 'Today', status: 'done' },
-  { id: 2, name: 'Build a page with headings and lists', project: 'HTML', priority: 'med', due: 'Mon', status: 'done' },
-  { id: 3, name: 'Style a box with padding and margin', project: 'CSS', priority: 'high', due: 'Tomorrow', status: 'progress' },
-  { id: 4, name: 'Practice Flexbox layout', project: 'CSS', priority: 'med', due: 'Wed', status: 'progress' },
-  { id: 5, name: 'Make the page responsive', project: 'CSS', priority: 'low', due: 'Fri', status: 'todo' },
-  { id: 6, name: 'Learn variables and functions', project: 'JS', priority: 'high', due: 'Thu', status: 'todo' },
-  { id: 7, name: 'Add a button click event', project: 'JS', priority: 'med', due: 'Fri', status: 'todo' },
+  { id: 1, name: 'Learn HTML tags and structure',   project: 'HTML', priority: 'high', due: 'Today',    status: 'done'     },
+  { id: 2, name: 'Build a page with headings and lists', project: 'HTML', priority: 'med',  due: 'Mon',     status: 'done'     },
+  { id: 3, name: 'Style a box with padding and margin',  project: 'CSS',  priority: 'high', due: 'Tomorrow',status: 'progress' },
+  { id: 4, name: 'Practice Flexbox layout',          project: 'CSS',  priority: 'med',  due: 'Wed',     status: 'progress' },
+  { id: 5, name: 'Make the page responsive',         project: 'CSS',  priority: 'low',  due: 'Fri',     status: 'todo'     },
+  { id: 6, name: 'Learn variables and functions',    project: 'JS',   priority: 'high', due: 'Thu',     status: 'todo'     },
+  { id: 7, name: 'Add a button click event',         project: 'JS',   priority: 'med',  due: 'Fri',     status: 'todo'     },
 ];
 
-/* ---- state ---- */
-// Bump SEED_VERSION whenever SEED changes, to refresh saved tasks with the new seed.
+// Bump SEED_VERSION whenever SEED changes to force a refresh of saved data.
 const SEED_VERSION = 2;
 if (load('tasksSeedVersion', 0) !== SEED_VERSION) {
   save('tasks', SEED);
   save('tasksSeedVersion', SEED_VERSION);
 }
 
-let tasks = load('tasks', SEED);              // read saved tasks, or seed on first visit
+let tasks = load('tasks', SEED);
 let nextId = tasks.reduce((max, t) => Math.max(max, t.id), 0) + 1;
-let activeStatus = 'all';
+let activeStatus   = 'all';
 let activePriority = 'all';
-let searchTerm = '';
-let sortBy = 'due';
+let searchTerm     = '';
+let sortBy         = 'due';
 
 const priorityOrder = { high: 0, med: 1, low: 2 };
 const statusMeta = {
-  todo:     { label: 'To Do',       dot: 'todo' },
+  todo:     { label: 'To Do',       dot: 'todo'     },
   progress: { label: 'In Progress', dot: 'progress' },
-  done:     { label: 'Done',        dot: 'done' },
+  done:     { label: 'Done',        dot: 'done'     },
 };
 
 const container = document.getElementById('taskContainer');
 
-/* ---- persistence: save after every change ---- */
 function persist() {
   save('tasks', tasks);
 }
 
-/* ---- small html helpers ---- */
 function checkIcon() {
   return '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#14100A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
 }
+
 function priorityLabel(p) {
   return p === 'high' ? 'High' : p === 'med' ? 'Medium' : 'Low';
 }
@@ -67,10 +64,9 @@ function taskRowHTML(t) {
     </div>`;
 }
 
-/* ---- the render function: state -> screen ---- */
 function render() {
   let filtered = tasks.filter((t) => {
-    if (activeStatus !== 'all' && t.status !== activeStatus) return false;
+    if (activeStatus   !== 'all' && t.status   !== activeStatus)   return false;
     if (activePriority !== 'all' && t.priority !== activePriority) return false;
     if (searchTerm && !t.name.toLowerCase().includes(searchTerm.toLowerCase())) return false;
     return true;
@@ -82,7 +78,7 @@ function render() {
     filtered.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  if (filtered.length === 0) {
+  if (!filtered.length) {
     container.innerHTML = '<div class="empty">No tasks match your filters.</div>';
     return;
   }
@@ -92,7 +88,7 @@ function render() {
 
   groups.forEach((g) => {
     const items = filtered.filter((t) => t.status === g);
-    if (items.length === 0 && activeStatus === 'all') return;
+    if (!items.length && activeStatus === 'all') return;
     html += `
       <div class="group">
         <div class="group-head">
@@ -107,11 +103,10 @@ function render() {
   container.innerHTML = html || '<div class="empty">No tasks match your filters.</div>';
 }
 
-/* ---- row actions: toggle done / delete (event delegation) ---- */
 container.addEventListener('click', (e) => {
   const row = e.target.closest('.task-row');
   if (!row) return;
-  const id = Number(row.dataset.id);
+  const id     = Number(row.dataset.id);
   const action = e.target.closest('[data-action]')?.dataset.action;
 
   if (action === 'toggle') {
@@ -123,7 +118,7 @@ container.addEventListener('click', (e) => {
   }
 
   if (action === 'delete') {
-    row.classList.add('fading');            // little fade-out before removal
+    row.classList.add('fading');
     setTimeout(() => {
       tasks = tasks.filter((t) => t.id !== id);
       persist();
@@ -132,18 +127,17 @@ container.addEventListener('click', (e) => {
   }
 });
 
-/* ---- inline rename (save on blur) ---- */
+// useCapture = true because blur doesn't bubble
 container.addEventListener('blur', (e) => {
-  if (e.target.dataset && e.target.dataset.action === 'rename') {
+  if (e.target.dataset?.action === 'rename') {
     const row = e.target.closest('.task-row');
-    const id = Number(row.dataset.id);
-    const t = tasks.find((t) => t.id === id);
-    t.name = e.target.textContent.trim() || t.name;
+    const id  = Number(row.dataset.id);
+    const t   = tasks.find((t) => t.id === id);
+    t.name    = e.target.textContent.trim() || t.name;
     persist();
   }
-}, true);   // useCapture = true so blur (which doesn't bubble) is caught
+}, true);
 
-/* ---- filters / search / sort ---- */
 document.getElementById('statusTabs').addEventListener('click', (e) => {
   const btn = e.target.closest('button');
   if (!btn) return;
@@ -172,32 +166,32 @@ document.getElementById('sortSelect').addEventListener('change', (e) => {
   render();
 });
 
-/* ---- modal: add new task ---- */
 const overlay = document.getElementById('modalOverlay');
-document.getElementById('openModalBtn').addEventListener('click', () => overlay.classList.add('open'));
+document.getElementById('openModalBtn').addEventListener('click',   () => overlay.classList.add('open'));
 document.getElementById('cancelModalBtn').addEventListener('click', () => overlay.classList.remove('open'));
 overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
 
 document.getElementById('saveTaskBtn').addEventListener('click', () => {
   const name = document.getElementById('mName').value.trim();
   if (!name) return;
+
   tasks.push({
-    id: nextId++,
+    id:       nextId++,
     name,
-    project: document.getElementById('mProject').value.trim() || 'TaskFlow Core',
+    project:  document.getElementById('mProject').value.trim()  || 'TaskFlow Core',
     priority: document.getElementById('mPriority').value,
-    due: document.getElementById('mDue').value.trim() || 'No date',
-    status: 'todo',
+    due:      document.getElementById('mDue').value.trim()      || 'No date',
+    status:   'todo',
   });
-  document.getElementById('mName').value = '';
+
+  document.getElementById('mName').value    = '';
   document.getElementById('mProject').value = '';
-  document.getElementById('mDue').value = '';
+  document.getElementById('mDue').value     = '';
   overlay.classList.remove('open');
   persist();
   render();
 });
 
-/* ---- boot ---- */
 initTheme();
 initSidebar();
 render();
