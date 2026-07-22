@@ -1,7 +1,6 @@
 import { initTheme } from '../modules/theme.js';
 import { initSidebar } from '../modules/sidebar.js';
 
-/* ---- accordion ---- */
 document.querySelectorAll('.help-faq-item').forEach((item) => {
   const btn = item.querySelector('.help-faq-q');
   const ans = item.querySelector('.help-faq-a');
@@ -9,7 +8,6 @@ document.querySelectorAll('.help-faq-item').forEach((item) => {
   btn.addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
 
-    // close all others
     document.querySelectorAll('.help-faq-item.open').forEach((other) => {
       if (other !== item) {
         other.classList.remove('open');
@@ -18,7 +16,6 @@ document.querySelectorAll('.help-faq-item').forEach((item) => {
       }
     });
 
-    // toggle this one
     if (isOpen) {
       item.classList.remove('open');
       ans.style.maxHeight = null;
@@ -31,7 +28,6 @@ document.querySelectorAll('.help-faq-item').forEach((item) => {
   });
 });
 
-/* ---- topic card click → scroll to + open group ---- */
 document.querySelectorAll('.help-topic').forEach((card) => {
   card.addEventListener('click', () => {
     const cat = card.dataset.topic;
@@ -41,7 +37,6 @@ document.querySelectorAll('.help-topic').forEach((card) => {
   });
 });
 
-/* ---- live search ---- */
 const searchInput  = document.getElementById('helpSearch');
 const clearBtn     = document.getElementById('searchClear');
 const faqList      = document.getElementById('faqList');
@@ -115,7 +110,6 @@ function runSearch(term) {
       if (qSpan) qSpan.innerHTML = highlight(qSpan._orig, term.trim());
       if (p)     p.innerHTML     = highlight(p._orig, term.trim());
 
-      // auto-open matched items
       if (!item.classList.contains('open')) {
         item.classList.add('open');
         item.querySelector('.help-faq-a').style.maxHeight =
@@ -127,7 +121,6 @@ function runSearch(term) {
     }
   });
 
-  // hide groups that have no visible children
   allGroups.forEach((group) => {
     const hasVisible = Array.from(group.querySelectorAll('.help-faq-item')).some(
       (i) => i.style.display !== 'none'
@@ -155,7 +148,6 @@ clearBtn.addEventListener('click', () => {
   searchInput.focus();
 });
 
-/* ---- boot ---- */
 initTheme();
 initSidebar();
 storeOriginals();

@@ -55,7 +55,6 @@ function initCharts() {
 
   const sharedGridColor = 'rgba(139,147,168,0.12)';
 
-  // Tasks by Priority
   const priorityCounts = { high: 0, med: 0, low: 0 };
   tasks.forEach((t) => { if (t.priority in priorityCounts) priorityCounts[t.priority]++; });
   markEmpty('priorityChart', !tasks.length);
@@ -84,7 +83,6 @@ function initCharts() {
     });
   }
 
-  // Task Status
   const statusCounts = { todo: 0, progress: 0, done: 0 };
   tasks.forEach((t) => { if (t.status in statusCounts) statusCounts[t.status]++; });
   markEmpty('statusChart', !tasks.length);
@@ -111,7 +109,6 @@ function initCharts() {
     { label: 'Done',        value: statusCounts.done,     color: STATUS_COLORS.done     },
   ]);
 
-  // Project Progress
   markEmpty('progressChart', !projects.length);
 
   const progressEl = document.getElementById('progressChart');
@@ -139,7 +136,6 @@ function initCharts() {
     });
   }
 
-  // Projects by Status
   const projStatusCounts = { active: 0, completed: 0, onhold: 0 };
   projects.forEach((p) => { if (p.status in projStatusCounts) projStatusCounts[p.status]++; });
   markEmpty('projStatusChart', !projects.length);

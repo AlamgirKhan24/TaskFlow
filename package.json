@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
   "watch": "sass --watch src/scss/main.scss dist/css/style.css",
-  "build": "sass src/scss/main.scss dist/css/style.css --style compressed"
+  "build": "sass src/scss/main.scss dist/css/style.css --style compressed && node build.js"
 },
   "keywords": [],
   "author": "",

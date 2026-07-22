@@ -114,7 +114,6 @@ function renderSidePanel() {
   document.getElementById('legendPersonal').textContent = counts.personal;
   document.getElementById('legendDeadline').textContent = counts.deadline;
 
-  // Build a flat list of today + future events, sorted by date, capped at 6
   const todayMidnight = new Date(today);
   todayMidnight.setHours(0, 0, 0, 0);
 

@@ -42,7 +42,6 @@ function applySidebarProfile() {
   if (avatarEl) avatarEl.textContent = initialsFrom(profile.name);
 }
 
-/* ---- appearance: dark / light picker ---- */
 function renderThemePicker() {
   const current = document.documentElement.getAttribute('data-theme') || 'dark';
   document.querySelectorAll('.theme-pill').forEach((pill) => {
@@ -58,7 +57,6 @@ document.getElementById('themePicker').addEventListener('click', (e) => {
   renderThemePicker();
 });
 
-/* ---- notification toggles ---- */
 const DEFAULT_PREFS = { emailNotifs: true, taskReminders: true, weeklyDigest: false, defaultPriority: 'med' };
 let prefs = load('preferences', DEFAULT_PREFS);
 
@@ -78,7 +76,6 @@ document.querySelectorAll('.switch').forEach((sw) => {
   });
 });
 
-/* ---- default priority picker ---- */
 function renderDefaultPriority() {
   document.querySelectorAll('#defaultPriorityPicker .cat-pill').forEach((pill) => {
     pill.classList.toggle('active', pill.dataset.priority === prefs.defaultPriority);
@@ -93,7 +90,6 @@ document.getElementById('defaultPriorityPicker').addEventListener('click', (e) =
   renderDefaultPriority();
 });
 
-/* ---- settings nav: highlight active section on scroll ---- */
 const navLinks   = document.querySelectorAll('.set-nav-link[data-section]');
 const sections   = document.querySelectorAll('.set-card[id]');
 const scrollRoot = document.querySelector('.app-main');
@@ -122,7 +118,6 @@ navLinks.forEach((link) => {
   });
 });
 
-/* ---- danger zone: clear all local data ---- */
 const clearOverlay = document.getElementById('confirmClearOverlay');
 document.getElementById('clearDataBtn').addEventListener('click',   () => clearOverlay.classList.add('open'));
 document.getElementById('cancelClearBtn').addEventListener('click', () => clearOverlay.classList.remove('open'));
@@ -135,7 +130,6 @@ document.getElementById('confirmClearBtn').addEventListener('click', () => {
   window.location.reload();
 });
 
-/* ---- boot ---- */
 initTheme();
 initSidebar();
 renderProfileForm();

@@ -41,6 +41,10 @@
   font-size: 14px;
 }
 
+.navbar-links-signin {
+  display: none;
+}
+
 .navbar-links a {
   position: relative;
   color: var(--text-dim);
@@ -182,5 +186,10 @@
   .navbar-links a {
     padding: $space-4 0;
     font-size: 16px;
+  }
+
+  .navbar-links-signin {
+    display: block;
+    color: var(--amber);
   }
 }
